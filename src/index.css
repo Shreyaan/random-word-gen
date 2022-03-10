@@ -34,6 +34,10 @@ padding-top: 0 !important;
 .App span{
   font-weight: 700;
 }
+.App p{
+  font-size: 1.4rem;
+
+}
 
 button{
   box-sizing: border-box;

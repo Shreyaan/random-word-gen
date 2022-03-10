@@ -32,7 +32,7 @@ function App() {
       <br />
        <h1 className="heading">Random Word Generator</h1>
      <p>
-       <span>word</span>: {parsedCsvData.word && parsedCsvData.word}
+       <span>Word</span>: {parsedCsvData.word && parsedCsvData.word}
         <br />
         <br />
         <span>Definition</span>: {parsedCsvData.word && parsedCsvData.definition	}
