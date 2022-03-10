@@ -4,7 +4,7 @@ import { usePapaParse } from "react-papaparse";
 
 function App() {
   const [count, setCount] = React.useState(0);
-  const [randomNUmber, setrandomNUmber] = React.useState(0);
+  const [randomNUmber, setrandomNUmber] = React.useState(Math.floor(Math.random() * 5348));
   const [parsedCsvData, setParsedCsvData] = useState([]);
   const { readRemoteFile } = usePapaParse();
   const url =
