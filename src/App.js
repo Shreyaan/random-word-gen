@@ -29,13 +29,17 @@ function App() {
 
   return (
     <div className="App">
+      <br />
+     <p>
+       <h1>Random Word Generator</h1>
+       <span>word</span>: {parsedCsvData.word && parsedCsvData.word}
+        <br />
+        <br />
+        <span>Definition</span>: {parsedCsvData.word && parsedCsvData.definition	}
+     </p>
       <button onClick={() => setCount((prevCount) => prevCount + 1)}>
         Get random word
       </button>
-      <br />
-     word: {parsedCsvData.word && parsedCsvData.word}
-      <br />
-      Definition: {parsedCsvData.word && parsedCsvData.definition	}
     </div>
   );
 }
