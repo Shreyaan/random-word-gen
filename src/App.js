@@ -9,36 +9,29 @@ function App() {
   const { readRemoteFile } = usePapaParse();
   const url =
     "https://raw.githubusercontent.com/Shreyaan/vocab-telegram-bot/master/words.csv";
- 
 
-  useEffect(
-    function () {
-      readRemoteFile(url, {
-        header: true,
-        worker: true,
-        complete: (results) => {
-         
-          setParsedCsvData(results);
-         
-        },
-      });
-    },
-    []
-  );
+  useEffect(() => {
+    setrandomNUmber(Math.floor(Math.random() * 5348));
+  }, [count]);
   
-  
-  useEffect(()=>{
-   
-    setrandomNUmber(Math.floor(Math.random() * 5348))
-  },[count])
+  useEffect(function () {
+    readRemoteFile(url, {
+      header: true,
+      worker: true,
+      complete: (results) => {
+        setParsedCsvData(results);
+      },
+    });
+  }, []);
 
   return (
     <div className="App">
       <button onClick={() => setCount((prevCount) => prevCount + 1)}>
-        readRemoteFile
+        Get random word
       </button>
-
-      {(parsedCsvData.data && JSON.stringify(parsedCsvData.data[randomNUmber].word))}
+      <br />
+      {parsedCsvData.data &&
+        JSON.stringify(parsedCsvData.data[randomNUmber].word)}
     </div>
   );
 }
