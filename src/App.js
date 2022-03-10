@@ -11,18 +11,21 @@ function App() {
     "https://raw.githubusercontent.com/Shreyaan/vocab-telegram-bot/master/words.csv";
 
   useEffect(() => {
-    setrandomNUmber(Math.floor(Math.random() * 5348));
+   ;
   }, [count]);
-  
+
   useEffect(function () {
+    setrandomNUmber(Math.floor(Math.random() * 5348))
     readRemoteFile(url, {
       header: true,
       worker: true,
       complete: (results) => {
-        setParsedCsvData(results);
+        if (results.data) {
+          setParsedCsvData(results.data[randomNUmber]);
+        }
       },
     });
-  }, []);
+  }, [count]);
 
   return (
     <div className="App">
@@ -30,8 +33,9 @@ function App() {
         Get random word
       </button>
       <br />
-      {parsedCsvData.data &&
-        JSON.stringify(parsedCsvData.data[randomNUmber].word)}
+     word: {parsedCsvData.word && parsedCsvData.word}
+      <br />
+      Definition: {parsedCsvData.word && parsedCsvData.definition	}
     </div>
   );
 }
