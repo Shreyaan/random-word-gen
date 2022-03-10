@@ -8,7 +8,7 @@ function App() {
   const [parsedCsvData, setParsedCsvData] = useState([]);
   const { readRemoteFile } = usePapaParse();
   const url =
-    "https://raw.githubusercontent.com/Shreyaan/vocab-telegram-bot/master/words.csv";
+    "https://random-word-gen.vercel.app/words.csv";
 
   useEffect(() => {
    ;
