@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 // import "./words.csv";
 import { usePapaParse } from "react-papaparse";
+import WordsJson from './convertcsv.js';
+
 
 function App() {
   const [count, setCount] = React.useState(0);
   const [randomNUmber, setrandomNUmber] = React.useState(Math.floor(Math.random() * 5348));
   const [parsedCsvData, setParsedCsvData] = useState([]);
   const { readRemoteFile } = usePapaParse();
-  const url =
-    "https://random-word-gen.vercel.app/words.csv";
+  // const url =
+  //   "https://random-word-gen.vercel.app/words.csv";
 
   useEffect(() => {
    ;
@@ -16,15 +18,17 @@ function App() {
 
   useEffect(function () {
     setrandomNUmber(Math.floor(Math.random() * 5348))
-    readRemoteFile(url, {
-      header: true,
-      worker: true,
-      complete: (results) => {
-        if (results.data) {
-          setParsedCsvData(results.data[randomNUmber]);
-        }
-      },
-    });
+    console.log(WordsJson[0])
+    setParsedCsvData(WordsJson[randomNUmber])
+    // readRemoteFile(url, {
+    //   header: true,
+    //   worker: true,
+    //   complete: (results) => {
+    //     if (results.data) {
+    //       setParsedCsvData(results.data[randomNUmber]);
+    //     }
+    //   },
+    // });
   }, [count]);
 
   return (
