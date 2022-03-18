@@ -5,10 +5,10 @@ function App() {
   const [count, setCount] = React.useState(0);
   const [randomNUmber, setrandomNUmber] = React.useState(
     Math.floor(Math.random() * 5348)
-  ); 
+  );
   const [parsedCsvData, setParsedCsvData] = useState([]);
 
-  useEffect(() => {}, [count]);
+  useEffect(() => { }, [count]);
 
   useEffect(
     function () {
